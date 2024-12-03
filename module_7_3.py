@@ -16,13 +16,12 @@ class WordsFinder:
         return all_words
 
     def find(self, word):
-        word = word.lower()
-        results = {}
+        result = {}
         all_words = self.get_all_words()
         for file_name, words in all_words.items():
             if word in words:
-                results[file_name] = words.index(word)
-        return results
+                result[file_name] = [w for w in words if w == word]
+        return result
 
     def count(self, word):
         word = word.lower()
